@@ -1,0 +1,255 @@
+/* ===== SEÇÃO ANTES E DEPOIS ===== */
+
+.antes-depois-section {
+  background: var(--branco-neve);
+  position: relative;
+  overflow: hidden;
+}
+
+.antes-depois-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 20%, var(--azul-gelo) 0%, transparent 50%),
+              radial-gradient(circle at 70% 80%, var(--azul-pastel) 0%, transparent 50%);
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.antes-depois-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Customização do Carousel Bootstrap */
+.carousel {
+  border-radius: var(--border-radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  background: white;
+}
+
+.carousel-inner {
+  border-radius: var(--border-radius-xl);
+}
+
+.carousel-item {
+  transition: transform 0.8s ease-in-out;
+}
+
+.antes-depois-item {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+}
+
+.antes-depois-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-slow);
+}
+
+.antes-depois-item:hover img {
+  transform: scale(1.05);
+}
+
+.antes-depois-label {
+  position: absolute;
+  top: var(--spacing-lg);
+  left: var(--spacing-lg);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius-full);
+  font-weight: var(--font-bold);
+  font-size: var(--font-sm);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 3;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.antes-depois-label.antes {
+  background: rgba(220, 53, 69, 0.9);
+  color: white;
+  border: 2px solid rgba(220, 53, 69, 0.3);
+}
+
+.antes-depois-label.depois {
+  background: rgba(40, 167, 69, 0.9);
+  color: white;
+  border: 2px solid rgba(40, 167, 69, 0.3);
+}
+
+/* Overlay com gradiente */
+.antes-depois-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(0,0,0,0.1) 0%, transparent 50%, rgba(0,0,0,0.1) 100%);
+  z-index: 2;
+  transition: var(--transition-normal);
+}
+
+.antes-depois-item:hover::before {
+  opacity: 0.5;
+}
+
+/* Customização dos controles do carousel */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 60px;
+  height: 60px;
+  background: var(--gradiente-azul);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.8;
+  transition: var(--transition-normal);
+  border: 3px solid white;
+  box-shadow: var(--shadow-lg);
+}
+
+.carousel-control-prev {
+  left: 10px;
+}
+
+.carousel-control-next {
+  right: 10px;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 24px;
+  height: 24px;
+  background-size: 100%;
+  filter: brightness(0) invert(1);
+}
+
+/* Customização dos indicadores */
+.carousel-indicators {
+  bottom: -50px;
+  margin-bottom: 0;
+}
+
+.carousel-indicators [data-bs-target] {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--azul-principal);
+  border: 2px solid var(--azul-principal);
+  opacity: 0.5;
+  transition: var(--transition-fast);
+  margin: 0 var(--spacing-xs);
+}
+
+.carousel-indicators .active {
+  opacity: 1;
+  transform: scale(1.2);
+  background: var(--azul-secundario);
+  border-color: var(--azul-secundario);
+}
+
+/* Efeito de divisão visual entre antes e depois */
+.antes-depois-item::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 4px;
+  height: 80%;
+  background: white;
+  border-radius: var(--border-radius-full);
+  box-shadow: var(--shadow-md);
+  z-index: 4;
+  opacity: 0;
+  transition: var(--transition-normal);
+}
+
+.carousel-item.active .antes-depois-item::after {
+  opacity: 1;
+}
+
+/* Responsividade da seção Antes e Depois */
+@media (max-width: 768px) {
+  .antes-depois-item {
+    height: 300px;
+  }
+  
+  .antes-depois-label {
+    top: var(--spacing-md);
+    left: var(--spacing-md);
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: var(--font-xs);
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .carousel-control-prev {
+    left: 5px;
+  }
+  
+  .carousel-control-next {
+    right: 5px;
+  }
+  
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .antes-depois-item {
+    height: 250px;
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 40px;
+    height: 40px;
+    border-width: 2px;
+  }
+  
+  .carousel-control-prev {
+    left: 5px;
+  }
+  
+  .carousel-control-next {
+    right: 5px;
+  }
+  
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .carousel-indicators {
+    bottom: -40px;
+  }
+  
+  .carousel-indicators [data-bs-target] {
+    width: 10px;
+    height: 10px;
+  }
+}
+

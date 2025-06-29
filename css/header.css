@@ -1,0 +1,102 @@
+/* ===== HEADER ===== */
+
+.header-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #1A1F1E;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(109, 163, 233, 0.795);
+  z-index: var(--z-fixed);
+  padding: var(--spacing-md) 0;
+  transition: var(--transition-normal);
+}
+
+.header-top.scrolled {
+  background: #1a1f1e85;
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-sm) 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  font-family: var(--font-secondary);
+  font-size: var(--font-2xl);
+  font-weight: var(--font-extrabold);
+  background: var(--gradiente-azul);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.logo-text:hover {
+  transform: scale(1.05);
+}
+
+.btn-contato-header {
+  background: var(--gradiente-azul);
+  color: white;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius-full);
+  font-weight: var(--font-semibold);
+  font-size: var(--font-sm);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  transition: var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+  border: 2px solid transparent;
+}
+
+.btn-contato-header:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  color: white;
+  border-color: var(--azul-principal);
+}
+
+.btn-contato-header i {
+  font-size: var(--font-base);
+  animation: var(--animation-pulse);
+}
+
+/* Responsividade do Header */
+@media (max-width: 768px) {
+  .header-top {
+    padding: var(--spacing-sm) 0;
+  }
+  
+  .logo-text {
+    font-size: var(--font-xl);
+  }
+  
+  .btn-contato-header {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: var(--font-xs);
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-contato-header {
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+  
+  .btn-contato-header span {
+    display: none;
+  }
+  
+  .btn-contato-header i {
+    margin: 0;
+  }
+}
+
